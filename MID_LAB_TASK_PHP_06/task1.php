@@ -1,24 +1,34 @@
 <?php
+	
+	if (isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['password'])) {
 
-	if(isset($_POST['submit'])){ 
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$flag = 0;
 
-	$alpha = range('A', 'Z'); 
-	$schar = ['@','#', '$', '%']
-}
+		if (strlen($username<2) || strlen($password<8)) {
+			
+			echo "User Name must contain at least two (2) characters 
+			<br>";
+			echo "Password must not be less than eight (8) characters 
+			<br>";
 
-	if(empty($_POST["username"]))
-	{
-		echo "You must contain at least two (2) characters";
-	}
-	elseif ($_POST['username'] == $alpha && strlen($_POST['password'])>=8) {
-		echo $_POST['username'];
-		echo $_POST['password'];
-	}
-	else{
-		echo "Invalid";
+		}
+		for ($i=0; $i < strlen($password); $i++) {
+				if ($password[$i] == '@' || $password[$i] == '#' || $password[$i] == '$' || $password[$i] == '%') {
+				 	
+				 	$flag = 1;
+					break;
+				} 
+				
+			}
+			if ($flag == 0) {
+					echo "Password must contain at least one of the special characters (@, #, $, %) <br>";
+					}
 	}
 
 ?>
+
 
   
 <html>
