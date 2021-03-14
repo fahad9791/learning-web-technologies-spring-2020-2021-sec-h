@@ -31,7 +31,45 @@
 									<input type="password" name="password" value="">
 								</td>
 							</tr>
-							
+							<tr>
+								<td>
+									Confirm Password
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="password" name="cpassword" value="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Name
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="name" value="">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									User Type
+									<hr>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="radio" name="type" value="User">User
+									<input type="radio" name="type" value="Admin">Admin
+									<hr>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="submit" name="submit" value="Sign Up">
+									<a href="">Sign In</a>
+								</td>
+							</tr>
 						</table>
 					</fieldset>
 				</form>
