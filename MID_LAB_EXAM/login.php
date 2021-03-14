@@ -41,7 +41,7 @@
 	<table>
 		<tr>
 			<td>
-				<form>
+				<form method="Post" action="">
 					<fieldset>
 						<legend>LOGIN</legend>
 						<table>
