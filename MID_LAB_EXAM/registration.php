@@ -1,3 +1,38 @@
+<?php
+	if (isset($_POST['submit'])) {
+		
+		$id = $_POST['id'];
+		$password = $_POST['password'];
+		$cpassword = $_POST['cpassword'];
+		$name = $_POST['name'];
+		$type = $_POST['type'];
+
+		$myfile = fopen('users.json', 'r');
+		$data = fread($myfile, filesize('users.json'));
+		fclose($myfile);
+
+		$decode = json_decode($data,true);
+
+		$user = [
+				'id'=>$id,	
+				'password'=> $password,
+				'cpassword'=> $cpassword,
+				'name'=>$name,
+				'type'=>$type
+			];
+
+			$decode[] = $user;
+
+			$curr_encode=json_encode($decode);
+
+			$myfile = fopen('users.json', 'w');
+			fwrite($myfile, $curr_encode);
+			fclose($myfile);
+			header('location: login.php');
+		
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +42,7 @@
 	<table>
 		<tr>
 			<td>
-				<form>
+				<form method="POST" action="">
 					<fieldset>
 						<legend>REGISTRATION</legend>
 						<table>
@@ -67,7 +102,7 @@
 							<tr>
 								<td>
 									<input type="submit" name="submit" value="Sign Up">
-									<a href="">Sign In</a>
+									<a href="login.php">Sign In</a>
 								</td>
 							</tr>
 						</table>
