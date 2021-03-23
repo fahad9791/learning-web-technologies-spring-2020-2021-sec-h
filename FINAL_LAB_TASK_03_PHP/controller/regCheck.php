@@ -1,5 +1,4 @@
 <?php
-	session_start();
 
 
 	if(isset($_POST['submit'])){
@@ -20,13 +19,6 @@
 				$conn = mysqli_connect('localhost', 'root', '', 'miniProject');
 				$sql = "insert into registration values('$id', '$password', '$cpassword', '$name', '$email', '$type')"; 
 				$result = mysqli_query($conn, $sql);
-
-				$_SESSION['id'] = $id;
-				$_SESSION['password'] = $password;
-				$_SESSION['cpassword'] = $cpassword;
-				$_SESSION['name'] = $name;
-				$_SESSION['email'] = $email;
-				$_SESSION['type'] = $type;
 
 				header('location: ../view/login.html');
 			}else{
