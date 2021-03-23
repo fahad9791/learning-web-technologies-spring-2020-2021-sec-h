@@ -7,12 +7,9 @@
 		$password = $_POST['password'];
 		//$type = 
 
-		if($id == "" || $password == ""){
-			echo "null submission...";
-		}else{
-
+		if($id != "" || $password != ""){
 			$conn = mysqli_connect('localhost', 'root', '', 'miniProject');
-			$sql = "select * from registration where id = '$id' and password = '$password'";
+			$sql = "select * from registration where id = '$id' and password = '$password' and type = 'User'";
 			$result = mysqli_query($conn, $sql);
 
 			if($result->num_rows == 1  ){
@@ -20,10 +17,15 @@
 				$_SESSION['flag'] = true;
 
 				header('location: ../view/user_home.html');
-			}else{
-				echo "invalid user";
+			}
+			else
+			{
+				$_SESSION['flag'] = true;
+
+				header('location: ../view/admin_home.html');
 			}
 		}
+		}
 
-	}
+	
 ?>

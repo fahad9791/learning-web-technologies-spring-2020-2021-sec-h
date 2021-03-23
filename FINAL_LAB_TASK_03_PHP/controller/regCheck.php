@@ -18,7 +18,7 @@
 			if($password == $cpassword){
 
 				$conn = mysqli_connect('localhost', 'root', '', 'miniProject');
-				$sql = "insert into registration values('$id', '$password', '$cpassword', '$name', '$email', 'type')"; 
+				$sql = "insert into registration values('$id', '$password', '$cpassword', '$name', '$email', '$type')"; 
 				$result = mysqli_query($conn, $sql);
 
 				$_SESSION['id'] = $id;
